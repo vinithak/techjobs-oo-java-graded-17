@@ -68,7 +68,7 @@ public class AbstractTest {
     }
 
     protected String getJobString (Job job) throws NoSuchMethodException, ClassNotFoundException, InvocationTargetException, IllegalAccessException, NoSuchFieldException {
-        return String.format("\nID: %d\n" +
+        return  String.format("\nID: %d\n" +
                         "Name: %s\n" +
                         "Employer: %s\n" +
                         "Location: %s\n" +

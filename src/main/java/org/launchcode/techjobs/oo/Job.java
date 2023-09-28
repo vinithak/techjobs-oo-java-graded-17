@@ -1,5 +1,5 @@
 package org.launchcode.techjobs.oo;
-
+import static java.lang.System.lineSeparator;
 import java.util.Objects;
 
 public class Job {
@@ -54,12 +54,13 @@ public class Job {
         if(name.isEmpty()&& employer.toString().isEmpty() && location.toString().isEmpty() && positionType.toString().isEmpty() && coreCompetency.toString().isEmpty()){
             return "OOPS! This job does not seem to exist.";
         }
-       String output = newLine + String.format( "ID:  %d\n" +
-                "    Name: %s\n" +
-                "    Employer: %s\n" +
-                "    Location: %s\n" +
-                "    Position Type: %s\n" +
-                "    Core Competency: %s",id, name.isEmpty()? noData: name , employer.toString().isEmpty()? noData: employer.toString()  ,location.toString().isEmpty()? noData: location.toString() ,positionType.toString().isEmpty()? noData: positionType.toString() ,coreCompetency.toString().isEmpty()? noData: coreCompetency.toString()) + newLine;
+       String output =  String.format( "\nID: %d\n" +
+                "Name: %s\n" +
+                "Employer: %s\n" +
+                "Location: %s\n" +
+                "Position Type: %s\n" +
+                "Core Competency: %s\n",id, name.isEmpty()? noData: name , employer.toString().isEmpty()? noData: employer.toString()  ,location.toString().isEmpty()? noData: location.toString() ,positionType.toString().isEmpty()? noData: positionType.toString() ,coreCompetency.toString().isEmpty()? noData: coreCompetency.toString());
+
         return output;
 
 

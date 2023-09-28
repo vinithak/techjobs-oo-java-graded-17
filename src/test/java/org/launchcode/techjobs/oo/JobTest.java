@@ -45,26 +45,26 @@ public class JobTest {
     public void testToStringStartsAndEndsWithNewLine(){
     Job job1 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
     String newLine = System.lineSeparator();
-    assertTrue(job1.toString().startsWith(newLine));
-    assertTrue(job1.toString().endsWith(newLine));
+    assertTrue(job1.toString().startsWith("\n"));
+    assertTrue(job1.toString().endsWith("\n"));
 }
 
 @Test
 public void testToStringContainsCorrectLabelsAndData(){
     Job job1 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
     String newLine = System.lineSeparator();
-    String expectedOutput = newLine + String.format( "ID:  %d\n" +
-            "    Name: %s\n" +
-            "    Employer: %s\n" +
-            "    Location: %s\n" +
-            "    Position Type: %s\n" +
-            "    Core Competency: %s", job1.getId(),job1.getName(), job1.getEmployer(),job1.getLocation(),job1.getPositionType(),job1.getCoreCompetency()) + newLine;
+    String expectedOutput =  String.format( "\nID: %d\n" +
+            "Name: %s\n" +
+            "Employer: %s\n" +
+            "Location: %s\n" +
+            "Position Type: %s\n" +
+            "Core Competency: %s\n", job1.getId(),job1.getName(), job1.getEmployer(),job1.getLocation(),job1.getPositionType(),job1.getCoreCompetency());
     assertEquals(job1.toString(),expectedOutput);
 }
 
 @Test
 public void testToStringHandlesEmptyField(){
-    Job job1 = new Job("Product tester", new Employer(""), new Location("Desert"), new PositionType(""), new CoreCompetency("Persistence"));
+    Job job1 = new Job("Web Developer", new Employer(""), new Location("StL"), new PositionType(""), new CoreCompetency("Java"));
     String newLine = System.lineSeparator();
     String name = (job1.getName().isEmpty()) ? "Data not available" : job1.getName();
     String employer = (job1.getEmployer().toString().isEmpty()) ? "Data not available" : job1.getEmployer().toString();
@@ -72,12 +72,12 @@ public void testToStringHandlesEmptyField(){
     String positionType = (job1.getPositionType().toString().isEmpty()) ? "Data not available" : job1.getPositionType().toString();
     String coreCompetency = (job1.getCoreCompetency().toString().isEmpty()) ? "Data not available" : job1.getCoreCompetency().toString();
 
-    String expectedOutput = newLine + String.format( "ID:  %d\n" +
-            "    Name: %s\n" +
-            "    Employer: %s\n" +
-            "    Location: %s\n" +
-            "    Position Type: %s\n" +
-            "    Core Competency: %s", job1.getId(),name, employer,location,positionType,coreCompetency) + newLine;
+    String expectedOutput =  String.format( "\nID: %d\n" +
+            "Name: %s\n" +
+            "Employer: %s\n" +
+            "Location: %s\n" +
+            "Position Type: %s\n" +
+            "Core Competency: %s\n", job1.getId(),name, employer,location,positionType,coreCompetency);
     assertEquals(job1.toString(),expectedOutput);
 }
 
